@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="start.js" defer></script>
+    <title>8848 - Saga</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f5f5;
+            background-image: url(is.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .subtitle {
+            margin: 0; 
+            font-size: 0.8em; 
+            color: white; 
+            text-align: center;                                                                                                                                                                                                                                                                                                                                                                                    
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            flex-direction: column; 
+            align-items: flex-start; 
+        }
+        .product-display {
+            position: relative;
+            text-align: center;
+        }
+        #main-image {
+            max-width: 100%;
+            height: auto;
+        }
+        .menu {
+            margin-top: 20px;
+            max-width: 200px; 
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .menu-item {
+            background-color: #000000;
+            color: white;             
+            padding: 15px;              
+            margin: 5px 0;           
+            border-radius: 5px;     
+            cursor: pointer;        
+            transition: background-color 0.3s; 
+            position: relative;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        .menu-item:hover {
+            background-color: #404f60;  
+        }
+        .submenu {
+            display: none;               
+            background-color: #f0f0f0;  
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;     
+            color: white;
+        }
+        .arrow {
+            width: 15px;
+            height: 15px;
+            margin-left: 10px;
+            transition: transform 0.3s ease;
+        }
+        .arrow.rotated {
+            transform: rotate(90deg); /* Roterar pilen */
+        }
+    </style>
+</head>
+<body>
+   <header>
+        <h1 class="logo">8848</h1>
+        <h2 class="subtitle">Altitude</h2>
+    </header>
+
+    <main>
+        <section class="product-display">
+            <img src="jacka.png" alt="Svart jacka" id="main-image">
+            <div class="menu">
+                <div class="menu-item">  
+                    Tvätt instruktioner 
+                    <img src="k.png" alt="Pilen" class="arrow" />
+                </div>
+                <div class="submenu">Användna tvättmedel, temperatur, osv.</div>
+                
+                <div class="menu-item">
+                    Tillverkning 
+                    <img src="k.png" alt="Pilen" class="arrow" />
+                </div>
+                <div class="submenu">Information om produktionen och material.</div>
+                
+                <div class="menu-item">
+                    Ditt val spelar roll 
+                    <img src="k.png" alt="Pilen" class="arrow" />
+                </div>
+                <div class="submenu">Varför hållbarhet är viktigt.</div>
+                
+                <div class="menu-item">
+                    Transport 
+                    <img src="k.png" alt="Pilen" class="arrow" />
+                </div>
+                <div class="submenu">Hur produkten transporteras.</div>
+                
+                <div class="menu-item">
+                    Återvinning 
+                    <img src="k.png" alt="Pilen" class="arrow" />
+                </div>
+                <div class="submenu">Hur du återvinner produkten korrekt.</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        @8848-altitude- all rights reserved
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => {
+                item.addEventListener('click', function () {
+                    const submenu = this.nextElementSibling;
+                    const arrow = this.querySelector('.arrow');
+
+                    // Visa/Dölja submenyn
+                    submenu.style.display = (submenu.style.display === 'block') ? 'none' : 'block';
+
+                    // Rotera pilen
+                    arrow.classList.toggle('rotated');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
